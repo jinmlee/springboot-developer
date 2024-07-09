@@ -1,0 +1,18 @@
+package me.jinmlee.springbootdeveloper.service;
+
+import lombok.RequiredArgsConstructor;
+import me.jinmlee.springbootdeveloper.domain.Article;
+import me.jinmlee.springbootdeveloper.dto.AddArticleRequest;
+import me.jinmlee.springbootdeveloper.repository.BlogRepository;
+import org.springframework.stereotype.Service;
+
+@RequiredArgsConstructor
+@Service
+public class BlogService {
+
+    private final BlogRepository blogRepository;
+
+    public Article save(AddArticleRequest request){
+        return blogRepository.save(request.toEntity());
+    }
+}
